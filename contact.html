@@ -1,0 +1,135 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Contact us</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+					
+						<img src="images/loo.png" style="width: 60px;padding:10px;">
+						
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="about.html">About us</a></li>
+								<li><a href="contact.html">Contact us</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+					
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p></p>
+							<form >
+								<div class="field">
+									<label for="admision_name">Name</label>
+									<input type="text" id="admision_name" />
+								</div>
+								<div class="field">
+									<label for="admision_email">Email</label>
+									<input type="email" id="admision_email" />
+								</div>
+								<div class="field">
+									<label for="admision_phone">Phone</label>
+									<input type="text" id="admision_phone" />
+								</div>
+								<div class="field">
+									<label for="admision_message">Message</label>
+									<textarea id="admision_message" rows="4"></textarea>
+								</div>
+								<ul class="actions">
+									<li><input type="button" value="Send Message" id="btn_submit" /></li>
+								</ul>
+							</form>
+
+							<ul class="contact">
+								<li class="fa-home">
+									Fourth ape technologies<br />
+									23, 2nd Cross St, Ezhil Nagar,<br />
+									Puducherry
+								</li>
+								<li class="fa-phone">0413 324 4600</li>
+								<!--<li class="fa-envelope"><a href="#">email</a></li>
+								<li class="fa-twitter"><a href="#">twitter.com</a></li>
+								<li class="fa-facebook"><a href="#">facebook.com</a></li>
+								<li class="fa-instagram"><a href="#">instagram.com</a></li>-->
+</ul>
+
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15613.580376647164!2d79.8262266!3d11.9471241!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x18cb2f137931e393!2sFourth+Ape+Technologies!5e0!3m2!1sen!2sin!4v1508601651545" width="200" height="300" frameborder="0" style="border:0;margin-top:50px;" allowfullscreen></iframe>
+
+						</div>
+
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			
+			
+			<script>
+				$(document).ready(function () {
+					//alert("Hai");
+					$("#btn_submit").click(function () {
+						var admision_name = $('#admision_name').val();
+						var admision_email = $('#admision_email').val();
+						var admision_phone = $('#admision_phone').val();
+						var admision_message = $('#admision_message').val();
+						alert("Your feedback has been sent we will contact shortly");
+						$.ajax({
+							type: "POST",
+							contentType: "application/json; charset=utf-8",
+						    url: "Default.aspx/sendApplication",
+							data: "{admision_name :'" + admision_name + "',admision_email :'" + admision_email + "', admision_phone :'" + admision_phone + "' , admision_message :'" + admision_message + "'}",
+							dataType: "json",
+							success: function (data) {
+								if (data.d === "true") 
+								{
+									//alert("Success....!");
+								}
+								else 
+								{
+									//alert("Email sending Error...");
+								}
+							}
+						});
+					});
+				});
+			</script>
+
+	</body>
+</html>
